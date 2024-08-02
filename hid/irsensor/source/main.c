@@ -132,7 +132,7 @@ int main(int argc, char* argv[])
                 for (x=0; x<ir_width; x++) {
                     u32 pos = y * stride/sizeof(u32) + x;
                     u32 pos2 = y * ir_width + x;//The IR image/camera is sideways with the joycon held flat. We won't rotate it here - you can do so yourself if you want.
-                    framebuf[pos] = RGBA8_MAXALPHA(/*ir_buffer[pos2]*/0, ir_buffer[pos2], /*ir_buffer[pos2]*/0);
+                    framebuf[pos] = RGBA8_MAXALPHA(ir_buffer[pos2], ir_buffer[pos2], ir_buffer[pos2]);
                 }
             }
         }
