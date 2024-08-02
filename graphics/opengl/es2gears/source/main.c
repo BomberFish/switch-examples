@@ -868,8 +868,20 @@ int main(int argc, char* argv[])
         // Get and process input
         padUpdate(&pad);
         u32 kDown = padGetButtonsDown(&pad);
+        u32 kHeld = padGetButtons(&pad);
+        
         if (kDown & HidNpadButton_Plus)
             break;
+
+        if (kHeld & HidNpadButton_AnyUp)
+            view_rot[0] += 1.0;
+        if (kHeld & HidNpadButton_AnyDown)
+            view_rot[0] -= 1.0;
+        if (kHeld & HidNpadButton_AnyLeft)
+            view_rot[1] += 1.0;
+        if (kHeld & HidNpadButton_AnyRight)
+            view_rot[1] -= 1.0;
+
 
         // Render stuff!
         gears_draw();
